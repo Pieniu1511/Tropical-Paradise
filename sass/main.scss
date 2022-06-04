@@ -1,6 +1,6 @@
-@import 'colors';
-@import 'components';
-@import 'mixins';
+@import './colors';
+@import './components';
+@import './mixins';
 
 *,
 *::before,
@@ -117,17 +117,17 @@ body {
 }
 
 @keyframes navItemsAnimation {
-    from {
-        transform: translateX(200%);
-    }
-    
-    to {
-        transform: translateX(0);
-    }
+	from {
+		transform: translateX(200%);
+	}
+
+	to {
+		transform: translateX(0);
+	}
 }
 
 .nav-items-animation {
-    animation: navItemsAnimation 1s both;
+	animation: navItemsAnimation 1s both;
 }
 
 // header
@@ -172,9 +172,61 @@ body {
 	}
 }
 
+//main
+//dreams section
+.dreams {
+	&__box {
+		display: flex;
+		flex-direction: column;
+		margin: 2em 0;
+	}
+
+	&__img {
+		width: 100%;
+		margin-bottom: 1em;
+	}
+
+	&__tittle {
+		margin-bottom: 0.5em;
+	}
+
+	&__text {
+		font-size: 1.4rem;
+	}
+}
+
 //**********************
 //media
 //**********************
+@media (min-width: 576px) {
+	.dreams {
+		&__box {
+			flex-direction: row;
+			justify-content: space-between;
+
+			&-text {
+				width: 55%;
+
+				&--right {
+					text-align: right;
+				}
+			}
+
+			&-img {
+				width: 40%;
+
+				&--right {
+					order: 1;
+				}
+			}
+		}
+
+		&__img {
+			margin-bottom: 0;
+			max-height: 300px;
+		}
+	}
+}
 
 @media (min-width: 768px) {
 	.white-block {
@@ -195,6 +247,12 @@ body {
 			font-size: 1.6rem;
 		}
 	}
+
+	.dreams {
+		&__text {
+			font-size: 1.8rem;
+		}
+	}
 }
 
 @media (min-width: 992px) {
@@ -209,5 +267,32 @@ body {
 		&__heading {
 			font-size: 10rem;
 		}
+	}
+
+	.nav {
+		&__item {
+			font-size: 4.8rem;
+		}
+	}
+
+	.dreams {
+		&__box {
+			margin: 5em 0;
+
+			&-text {
+				display: flex;
+				flex-direction: column;
+                justify-content: flex-end;
+                margin-bottom: 2.5em;
+			}
+		}
+
+        &__tittle {
+            font-size: 3.6rem;
+        }
+
+        &__text {
+            font-size: 2.2rem;
+        }
 	}
 }
