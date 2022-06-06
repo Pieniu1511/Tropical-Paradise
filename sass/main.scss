@@ -197,27 +197,134 @@ body {
 
 //hero-img
 .hero-img {
-    position: relative;
-    padding: 10em 2em;
-    @include heroImages('../img/hero-mini.jpg');
-    text-align: center;
-    color: $pure-white;
-    overflow: hidden;
+	position: relative;
+	padding: 10em 2em;
+	@include heroImages('../img/hero-mini.jpg');
+	text-align: center;
+	color: $pure-white;
+	overflow: hidden;
 
-    &__title {
-        font-family: 'Dancing Script', cursive;
-        margin-bottom: 0.5em;
+	&__title {
+		font-family: 'Dancing Script', cursive;
+		margin-bottom: 0.5em;
 		font-size: 4.8rem;
-    }
+	}
 
-    &__text {
-        padding: 1em 0;
-    }
+	&__text {
+		padding: 1em 0;
+	}
 }
 
+//islands
+.islands {
+	&__card {
+		position: relative;
+		margin: 1em 0;
+		height: 450px;
+		color: $pure-white;
+		text-align: center;
+		perspective: 1000px;
 
+		&:hover {
+			.islands__card-img {
+				transform: rotateY(-180deg);
+				opacity: 0;
+			}
+			.islands__card-info {
+				transform: rotateY(0);
+				opacity: 1;
+			}
+		}
 
+		&-img {
+			padding: 2em;
+			height: 100%;
+			border-radius: 8px;
+			background-size: cover;
+			transition: transform 1s, opacity 1s;
 
+			&--first {
+				background-image: $light-blue-gradient, url('../img/water-3354063_640.jpg');
+			}
+			&--second {
+				background-image: $blue-gradient, url('../img/boat-166738_640.jpg');
+			}
+			&--third {
+				background-image: $purple-gradient, url('../img/hawaii-79928_640.jpg');
+			}
+
+			&-title {
+				font-family: 'Dancing Script', cursive;
+				font-size: 2.8rem;
+			}
+
+			&-info {
+				position: absolute;
+				bottom: 30px;
+				right: 30px;
+				font-size: 1.8rem;
+
+				i {
+					margin-right: 0.3em;
+				}
+			}
+		}
+
+		&-info {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			background-image: $light-blue-gradient-solid;
+			border-radius: 8px;
+			opacity: 0;
+			transform: rotateY(180deg);
+			transition: transform 1s, opacity 1s;
+
+			&-title {
+				@include islandCardStyles;
+				top: 1.2em;
+				font-family: 'Dancing Script', cursive;
+				font-size: 2.8rem;
+			}
+
+			&-list {
+				margin: 0 auto;
+				width: 70%;
+				list-style: none;
+
+				&-item {
+					padding: 1em;
+					font-size: 1.4rem;
+					border-bottom: 1px solid $light-white;
+
+					&:last-child {
+						border-bottom: none;
+					}
+				}
+			}
+
+			&-btn {
+				@include islandCardStyles;
+				bottom: 2em;
+				padding: 1em;
+				border-radius: 8px;
+				width: 80%;
+				border: none;
+				background-color: $green-color;
+				cursor: pointer;
+
+				&::before {
+					background-color: $green-color-hover;
+				}
+			}
+		}
+	}
+}
 
 //**********************
 //media
@@ -278,16 +385,29 @@ body {
 		}
 	}
 
-    .hero-img {
-        padding: 30rem 2em;
+	.hero-img {
+		padding: 30rem 2em;
 
-        hr {
-            margin: 0 auto;
-            width: 70%;
+		hr {
+			margin: 0 auto;
+			width: 70%;
+		}
+
+		&__text {
+			font-size: 2.2rem;
+		}
+	}
+
+    .islands {
+        &__cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
-        &__text {
-            font-size: 2.2rem;
+        &__card {
+            margin: 1em;
+            width: 45%;
         }
     }
 }
@@ -319,31 +439,39 @@ body {
 			&-text {
 				display: flex;
 				flex-direction: column;
-                justify-content: flex-end;
-                margin-bottom: 2.5em;
+				justify-content: flex-end;
+				margin-bottom: 2.5em;
 			}
 		}
 
-        &__tittle {
-            font-size: 3.6rem;
-        }
+		&__tittle {
+			font-size: 3.6rem;
+		}
 
-        &__text {
-            font-size: 2.2rem;
-        }
+		&__text {
+			font-size: 2.2rem;
+		}
 	}
 
-    .hero-img {
-        padding: 40rem 2em;
-        background-image: $blue-gradient, url('../img/hero-big.jpg');
+	.hero-img {
+		padding: 40rem 2em;
+		background-image: $blue-gradient, url('../img/hero-big.jpg');
 
-        &__title {
-            font-size: 7.2rem;
-        }
+		&__title {
+			font-size: 7.2rem;
+		}
 
-        hr {
-            width: 60%;
-            max-width: 900px;
+		hr {
+			width: 60%;
+			max-width: 900px;
+		}
+	}
+}
+
+@media (min-width: 1100px) {
+    .islands {
+        &__card {
+            width: 30%;
         }
     }
 }
