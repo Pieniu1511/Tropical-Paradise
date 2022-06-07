@@ -451,37 +451,86 @@ body {
 		flex-direction: column;
 	}
 
-    &__form-label {
-        margin-bottom: 0.5em;
-        text-transform: uppercase;
-    }
+	&__form-label {
+		margin-bottom: 0.5em;
+		text-transform: uppercase;
+	}
 
-    &__form-input {
-        @include contactForm;
-    }
+	&__form-input {
+		@include contactForm;
+	}
 
-    &__form-textarea {
-        @include contactForm;
-        max-width: 100%;
-        min-width: 100%;
-        min-height: 150px;
-    }
+	&__form-textarea {
+		@include contactForm;
+		max-width: 100%;
+		min-width: 100%;
+		min-height: 150px;
+	}
 
-    &__form-btn {
-        align-self: flex-end;
-        padding: 1em;
-        width: 100%;
-        max-width: 300px;
-        color: $pure-white;
-        border: none;
-        border-radius: 8px;
-        background-color: $main-color;
-        cursor: pointer;
+	&__form-btn {
+		align-self: flex-end;
+		padding: 1em;
+		width: 100%;
+		max-width: 300px;
+		color: $pure-white;
+		border: none;
+		border-radius: 8px;
+		background-color: $main-color;
+		cursor: pointer;
 
-        &::before {
-            background-color: $secondary-color;
-        }
-    }
+		&::before {
+			background-color: $secondary-color;
+		}
+	}
+}
+
+//footer
+.footer {
+	color: $pure-white;
+	background-color: $dark;
+
+	.wrapper {
+		padding: 6em 2em 2em;
+	}
+
+	&__box {
+		font-size: 1.4rem;
+	}
+
+	&__box-desktop {
+		display: none;
+	}
+
+	&__box-title {
+		margin-bottom: 1em;
+		font-size: 3rem;
+		text-transform: uppercase;
+	}
+
+	&__box-social {
+		margin: 2em 0 1em;
+	}
+
+	&__box-link {
+		padding: 0 0.3em;
+		font-size: 3.6rem;
+		color: $pure-white;
+		text-decoration: none;
+		transition: color 0.3s;
+
+		&:first-child {
+			padding-left: 0;
+		}
+
+		&:hover {
+			color: $light-white;
+		}
+	}
+
+	&__bottom-text {
+		padding: 2em;
+		text-align: center;
+	}
 }
 
 //**********************
@@ -598,6 +647,43 @@ body {
 		&__card {
 			margin: 1em;
 			width: 45%;
+		}
+	}
+
+	.footer {
+		&__boxes {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		&__box-desktop {
+			display: block;
+		}
+
+		&__box {
+			margin: 0 2em;
+			width: 25%;
+
+			&:first-child {
+				width: 50%;
+			}
+		}
+
+		&__box-title {
+			font-size: 2.4rem;
+		}
+
+		&__box-list {
+			list-style: none;
+		}
+
+		&__box-list-item {
+			margin-bottom: 1em;
+
+			a {
+				color: $light-white;
+				text-decoration: none;
+			}
 		}
 	}
 }
